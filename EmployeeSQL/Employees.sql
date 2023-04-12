@@ -51,6 +51,17 @@ CREATE TABLE employees (
 	FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
 );
 
+
+-- had to update hire date to DATE type here
+UPDATE employees
+SET new_col = TO_DATE(hire_date, 'MM/DD/YYYY')
+
+ALTER TABLE employees
+DROP hire_date;
+
+ALTER TABLE employees
+RENAME new_col TO hire_date
+
 SELECT *
 FROM employees
 
@@ -77,3 +88,18 @@ CREATE TABLE titles (
 
 SELECT *
 FROM titles
+
+--List the employee number, last name, first name, sex, and salary of each employee
+CREATE VIEW emp_salary AS
+SELECT employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
+FROM employees
+INNER JOIN salaries ON
+employees.emp_no = salaries.emp_no;
+
+
+--List the first name, last name, and hire date for the employees who were hired in 1986
+CREATE VIEW hired_86 AS
+SELECT employees.first_name, employees.last_name, employees.hire_date
+FROM employees
+WHERE YEAR(hire_date) = 1986
+
