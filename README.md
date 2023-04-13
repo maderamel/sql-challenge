@@ -12,7 +12,9 @@ Those original csv files can be found here:
 The sql file containing both the tables with imported data and queries is called employees.sql and can be accessed here: [Permalink to sql file] (https://github.com/maderamel/sql-challenge/blob/960424218e1be750cedde0640964f317179c9654/EmployeeSQL/Employees.sql)
 
 # Analysis
-Here is a list of the Queries that were executed. Each query was saved as a view so that it could easily be viewed within the sql file. 
+Each query was saved as a view so that it could easily be viewed within the sql file. Each view was also saved as a csv file which can be accessed here: [Permalink to Output Analysis file] (https://github.com/maderamel/sql-challenge/tree/main/EmployeeSQL/Output%20Analysis)
+
+ Below is a list of the Queries that were executed.
 
 **List the employee number, last name, first name, sex, and salary of each employee**
 
@@ -88,3 +90,5 @@ SELECT employees.last_name, count(*)
 FROM employees
 GROUP BY employees.last_name
 ORDER BY count desc
+
+
